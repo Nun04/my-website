@@ -11,10 +11,6 @@
     <link rel="icon" href="img/logo.png">
     <style>
         body {
-            width: 100%;
-            height: auto;
-            margin: auto;
-            overflow: auto;
             font-family: 'Arial', sans-serif;
         }
         .section-header {
@@ -34,11 +30,24 @@
         .cta-button {
             background-color: #A52A2A;
             color: white;
-            font-size: 1rem;
-            padding: 10px 20px;
+            font-size: 1.2rem;
+            padding: 15px 25px;
             text-align: center;
-            border-radius: 5px;
+            border-radius: 10px;
             text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #6A2A2A;
+            transform: scale(1.1);
+        }
+        .cta-button:focus {
+            outline: none;
+        }
+        .cta-button:active {
+            background-color: #8B4B4B;
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -46,19 +55,19 @@
     <header>
         <img src="img/brandner.png" class="img-fluid w-100">
         <nav class="navbar navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">Logistics Cost Calculator</a>
+            <a class="navbar-brand" href="index.html">คำนวณต้นทุนโลจิสติกส์</a>
             <ul class="nav nav-pills">
                 <li class="nav-item">
-                    <a class="nav-link" href="4.html">Transport Cost</a>
+                    <a class="nav-link" href="4.html">ต้นทุนการขนส่ง</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="3.html">Warehouse Costs</a>
+                    <a class="nav-link" href="3.html">ต้นทุนการจัดการคลังสินค้า</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="2.html">Inventory Carrying Cost</a>
+                    <a class="nav-link" href="2.html">ต้นทุนการจัดการสินค้าคงคลัง</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="1.html">Administration Costs</a>
+                    <a class="nav-link" href="1.html">ต้นทุนการบริหาร</a>
                 </li>
             </ul>
         </nav>
@@ -67,33 +76,52 @@
     <main>
         <div class="container mt-5">
             <div class="content">
-                <h2 class="section-header">Logistics Cost Categories</h2>
+                <h2 class="section-header">ต้นทุนสินค้าในด้านโลจิสติกส์ มีอะไรบ้าง ?</h2>
                 <hr>
-                <p><span class="highlight">Logistics Cost</span> refers to the costs incurred from various activities within logistics operations aimed at efficient product and service delivery, with customer satisfaction in mind.</p>
-                <h3 class="section-header">1. Transportation Costs</h3>
-                <p>These costs arise from transportation activities, which vary depending on customer needs, product type, transportation method, and distance.</p>
-                <img src="img/1.png" class="img-fluid">
+                <p><font face="angsananew" size="4" color="#2F4F4F">
+                    ต้นทุน <span class="highlight">(Cost)</span> หมายถึงรายจ่ายที่เกิดขึ้นหรือคาดว่าจะเกิดขึ้นและทำให้ธุรกิจได้รับผลประโยชน์หรือผลตอบแทนในรูปของสินทรัพย์หรือการบริการต้นทุนที่เกิดขึ้นของธุรกิจสามารถแยกพิจารณาตามการใช้ประโยชน์ที่พึงจะได้รับในช่วงเวลาหนึ่ง ๆ
+                    <br><br>
+                    ต้นทุนโลจิสติกส์ หมายถึง ต้นทุนที่เกิดจากกิจกรรมต่างๆ ด้านโลจิสติกส์ในสถานประกอบการ เพื่อก่อให้เกิดการเคลื่อนย้าย การจัดเก็บ การรวบรวม และการกระจายสินค้า วัตถุดิบ ชิ้นส่วนประกอบ และการบริการให้มีประสิทธิภาพและประสิทธิผลสูงสุด โดยคำนึงถึงความต้องการและความพึงพอใจของลูกค้าเป็นสำคัญ
+                </font></p>
                 
-                <h3 class="section-header">2. Warehousing Costs</h3>
-                <p>These costs come from activities within a warehouse, such as receiving goods, storage, inventory management, and labor costs associated with handling goods.</p>
-                <img src="img/2.png" class="img-fluid">
+                <h3 class="section-header">ต้นทุนโลจิสติกส์แบ่งออกเป็น 4 ประเภท</h3>
+                <hr>
+                <p><font face="angsananew" size="4" color="#2F4F4F">
+                    1. <span class="highlight">ต้นทุนการขนส่ง</span> (Transportation Cost): ต้นทุนที่เกิดจากกิจกรรมการขนส่งและบริการซึ่งต้นทุนเหล่านี้ยังผันแปรไปตามความต้องการของลูกค้าที่แตกต่างกัน เช่น ปริมาณการขนส่ง ผลิตภัณฑ์ที่ขนส่งน้ำหนัก จากจุดกำเนิดสินค้าจนกระทั่งถึงมือลูกค้า รวมไปถึงวิธีการขนส่งที่ก่อให้เกิดต้นทุนที่แตกต่างกัน
+                </font></p>
+                <center><img src="img/1.png" class="img-fluid"></center><br>
+                
+                <p><font face="angsananew" size="4" color="#2F4F4F">
+                    2. <span class="highlight">ต้นทุนคลังสินค้า</span> (Warehousing Costs): ต้นทุนที่เกิดจากกิจกรรมภายในคลังสินค้า เช่น การตรวจรับสินค้า การจัดเก็บ การตรวจคำสั่งซื้อที่เข้ามา การประกอบชิ้นส่วน การติดฉลาก การแยกหรือรวมสินค้า การจัดเก็บสินค้า การถ่ายโอนข้อมูลในคลังสินค้า และการเลือกสถานที่ตั้งคลังสินค้า ซึ่งจะแปรผันไปตามชนิดและขนาดของคลังสินค้า
+                </font></p>
+                <center><img src="img/2.png" class="img-fluid"></center><br>
+                
+                <p><font face="angsananew" size="4" color="#2F4F4F">
+                    3. <span class="highlight">ต้นทุนในการเก็บรักษาสินค้าคงคลัง</span> (Inventory Carrying Cost): ต้นทุนที่เกี่ยวข้องกับการเก็บรักษาสินค้าคงคลัง ซึ่งจะผันแปรไปกับปริมาณของสินค้าคงคลังและทำให้เกิดต้นทุนด้านต่าง ๆ ซึ่งสามารถแบ่งออกเป็น 4 กลุ่มดังนี้
+                    <br>– ต้นทุนค่าเสียโอกาส (Opportunity Cost) จากการที่ไม่สามารถนำเงินที่ใช้ในการดูแลสินค้าคงคลังไปลงทุนในส่วนอื่นได้
+                    <br>– ต้นทุนในการดูแลสินค้าคงคลังได้แก่ ค่าประกันภัย และภาษี
+                    <br>– ต้นทุนพื้นที่การจัดเก็บสินค้า ได้แก่ ต้นทุนด้านสถานที่ซึ่งสัมพันธ์กับปริมาณของสินค้า
+                    <br>– ต้นทุนความเสี่ยงในการจัดเก็บสินค้า ได้แก่ ต้นทุนจากการที่สินค้าหมดอายุ ความล้าสมัย การลักขโมยหรือการเสียหายจากระบบการเคลื่อนย้ายภายใน
+                </font></p>
+                <center><img src="img/3.png" class="img-fluid"></center><br>
+                
+                <p><font face="angsananew" size="4" color="#2F4F4F">
+                    4. <span class="highlight">ต้นทุนการบริหาร</span> (Administration Cost): เกิดจากกิจกรรมหลัก 3 ประเภท คือ
+                    <br>ระดับการให้บริการ (Customer Service Level) เป็นเงินที่จ่ายไปเพื่อสนับสนุนการบริการลูกค้า เช่น ค่าใช้จ่ายที่เกี่ยวข้องกับการทำให้คำสั่งซื้อสมบูรณ์
+                    <br>ต้นทุนกระบวนการสั่งซื้อและระบบสารสนเทศ (Order Processing and Information Costs) เป็นต้นทุนที่เกี่ยวเนื่องกับกระบวนการจัดการคำสั่งซื้อของลูกค้า การสื่อสารทั้งภายในและภายนอกองค์กร
+                    <br>ต้นทุนปริมาณ (Lot Quantity Cost) ซึ่งจะขึ้นอยู่กับปริมาณสินค้าที่จัดซื้อจัดหาและผลิต
+                </font></p>
 
-                <h3 class="section-header">3. Inventory Carrying Costs</h3>
-                <p>These costs are related to maintaining inventory, including opportunity costs, storage costs, insurance, taxes, and risks such as product damage or theft.</p>
-                <img src="img/3.png" class="img-fluid">
-
-                <h3 class="section-header">4. Administration Costs</h3>
-                <p>These costs are associated with customer service, order processing, and information systems. They cover expenses such as processing customer orders, managing returns, and the cost of administrative overhead.</p>
-
-                <div class="text-center mt-4">
-                    <a href="calculator.html" class="cta-button">Start Calculating Logistics Costs</a>
+                <!-- Add a call-to-action button -->
+                <div class="text-center">
+                    <a href="#more-info" class="cta-button">เรียนรู้เพิ่มเติม</a>
                 </div>
             </div>
         </div>
     </main>
 
     <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2025 Logistics Cost Calculator. All rights reserved.</p>
+        <p>&copy; 2025 คำนวณต้นทุนโลจิสติกส์. All rights reserved.</p>
     </footer>
 </body>
 </html>
