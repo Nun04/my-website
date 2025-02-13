@@ -121,38 +121,154 @@
               }
           </style>
     </head>
-    <body>
-        <div class="form-container">
-            <h1>ต้นทุนการขนส่ง</h1>
-            <form id="costForm">
-        <div class="form-group">
-        <label for="distance">ระยะทาง (กิโลเมตร):</label>
-        <input type="number" id="distance" name="distance" placeholder="ระยะทาง" required>
-        </div>
-        <div class="form-group">
-        <label for="weight">น้ำหนักสินค้า (กิโลกรัม):</label>
-        <input type="number" id="weight" name="weight" placeholder="น้ำหนัก" required>
-        </div>
-        <div class="form-group">
-        <label for="costPerKg">ค่าใช้จ่ายต่อกิโลกรัม:</label>
-        <input type="number" id="costPerKg" name="costPerKg" placeholder="บาท/กก." required>
-        </div>
-        <div class="form-group">
-        <label for="costPerKm">ค่าใช้จ่ายต่อกิโลเมตร:</label>
-        <input type="number" id="costPerKm" name="costPerKm" placeholder="บาท/กม." required>
-        </div>
+    <!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คำนวณต้นทุนการขนส่ง</title>
+    <style>
+        /* เริ่มจากการจัดการกับฟอร์ม */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
 
-        <button type="button" onclick="calculateTransportCost()">คำนวณ</button>
-    </form>
-<br>
-    <h2>ต้นทุนการขนส่งทั้งหมด: <span id="totalTransportCost">0</span> บาท</h2>
+        .form-container {
+            width: 80%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2em;
+            background-color: #5cb85c; /* สีเขียวเดิม */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4cae4c; /* สีเขียวเข้มเมื่อ hover */
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        /* Media Query สำหรับอุปกรณ์ขนาดเล็ก */
+        @media (max-width: 768px) {
+            .form-container {
+                width: 90%;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            input[type="number"], button {
+                font-size: 1em;
+            }
+        }
+        
+        /* Media Query สำหรับอุปกรณ์ขนาดใหญ่ (Desktop) */
+        @media (min-width: 769px) {
+            .form-container {
+                width: 60%;
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            input[type="number"], button {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>ต้นทุนการขนส่ง</h1>
+        <form id="costForm">
+            <div class="form-group">
+                <label for="distance">ระยะทาง (กิโลเมตร):</label>
+                <input type="number" id="distance" name="distance" placeholder="ระยะทาง" required>
+            </div>
+            <div class="form-group">
+                <label for="weight">น้ำหนักสินค้า (กิโลกรัม):</label>
+                <input type="number" id="weight" name="weight" placeholder="น้ำหนัก" required>
+            </div>
+            <div class="form-group">
+                <label for="costPerKg">ค่าใช้จ่ายต่อกิโลกรัม:</label>
+                <input type="number" id="costPerKg" name="costPerKg" placeholder="บาท/กก." required>
+            </div>
+            <div class="form-group">
+                <label for="costPerKm">ค่าใช้จ่ายต่อกิโลเมตร:</label>
+                <input type="number" id="costPerKm" name="costPerKm" placeholder="บาท/กม." required>
+            </div>
+
+            <button type="button" onclick="calculateTransportCost()">คำนวณ</button>
+        </form>
+        <br>
+        <h2>ต้นทุนการขนส่งทั้งหมด: <span id="totalTransportCost">0</span> บาท</h2>
     </div>
+
+    <center><button onclick="history.back()" style="width:10%;">ย้อนกลับ</button></center>
+    <br>
+
     <script>
         function calculateTransportCost() {
             const distance = parseFloat(document.getElementById('distance').value) || 0;
             const weight = parseFloat(document.getElementById('weight').value) || 0;
             const costPerKg = parseFloat(document.getElementById('costPerKg').value) || 0;
             const costPerKm = parseFloat(document.getElementById('costPerKm').value) || 0;
+
+            if (distance <= 0 || weight <= 0 || costPerKg <= 0 || costPerKm <= 0) {
+                alert("กรุณากรอกข้อมูลทั้งหมดให้ถูกต้อง");
+                return;
+            }
 
             const weightCost = weight * costPerKg;
             const distanceCost = distance * costPerKm;
@@ -161,7 +277,5 @@
             document.getElementById('totalTransportCost').innerText = totalCost.toFixed(2);
         }
     </script>
-          <Center><button onclick="history.back()" style="width:10%;">ย้อนกลับ</button></Center>
-          <br>
-      </body>
-      </html>
+</body>
+</html>
