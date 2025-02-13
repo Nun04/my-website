@@ -18,114 +18,110 @@
           }
       </style>
     </head>
+<body>
+  <main>
+    <section id="home">
+       <img src="img/brandner.png" class="img-fluid">
+    </section>
+    </main>
+  <div style="background-color: rgb(151, 196, 206);">
+    <div class="vstack gap-3">
+      <nav class="navbar navbar-dark bg-dark fixed-">
+        <a class="navbar-brand" href="index.html">คำนวณต้นทุนโลจิสติกส์</a>
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link" href="4.html">ต้นทุนการขนส่ง</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="3.html">ต้นทุนการจัดการคลังสินค้า</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="2.html">ต้นทุนการจัดการสินค้าคงคลัง</a>
+          </li>
+          <li class="nav-item"></li>
+            <a class="nav-link" href="1.html">ต้นทุนการบริหาร</a>
+          </li>
+        </div>
+        </ul>
+      </nav>
 <!DOCTYPE html>
-<html lang="th">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>คำนวณต้นทุนการจัดการคลังสินค้า</title>
-    <style>
-        /* เริ่มจากการจัดการกับฟอร์ม */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        .form-container {
-            width: 80%;
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 1.1em;
-            color: #555;
-        }
-
-        input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            font-size: 1em;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-top: 5px;
-        }
-
-        button {
-            width: 100%;
-            padding: 10px;
-            font-size: 1.2em;
-            background-color: #5cb85c; /* สีเขียวเดิม */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #4cae4c; /* สีเขียวเข้มเมื่อ hover */
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 1.5em;
-            margin-top: 20px;
-            color: #333;
-        }
-
-        /* Media Query สำหรับอุปกรณ์ขนาดเล็ก */
-        @media (max-width: 768px) {
-            .form-container {
-                width: 90%;
-                padding: 15px;
-            }
-
-            h1 {
-                font-size: 1.8em;
-            }
-
-            input[type="number"], button {
-                font-size: 1em;
-            }
-        }
-        
-        /* Media Query สำหรับอุปกรณ์ขนาดใหญ่ (Desktop) */
-        @media (min-width: 769px) {
-            .form-container {
-                width: 60%;
-                padding: 30px;
-            }
-
-            h1 {
-                font-size: 2.5em;
-            }
-
-            input[type="number"], button {
-                font-size: 1.2em;
-            }
-        }
-    </style>
-</head>
-<!DOCTYPE html>
+      <html lang="th">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>คำนวณต้นทุนการจัดการคลังสินค้า</title>
+          <style>
+              /* จัดรูปแบบฟอร์ม */
+              body {
+                  font-family: Arial, sans-serif;
+                  background-color: #ffffff;
+                  color: #333;
+              }
+      
+              .form-container {
+                  width: 500px;
+                  margin: 100px auto;
+                  padding: 30px;
+                  background-color: #ffffff;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                  border-radius: 20px;
+                  border: 1px solid #ddd;
+              }
+      
+              h1 {
+                  text-align: center;
+                  color: #162066;
+              }
+      
+              .form-group {
+                  margin-bottom: 20px;
+              }
+      
+              label {
+                  display: block;
+                  font-weight: bold;
+                  margin-bottom: 5px;
+                  color: #555;
+              }
+      
+              input[type="text"], input[type="number"] {
+                  width: 100%;
+                  padding: 10px;
+                  border: 1px solid #ddd;
+                  border-radius: 5px;
+                  box-sizing: border-box;
+                  font-size: 16px;
+              }
+      
+              input[type="text"]:focus, input[type="number"]:focus {
+                  border-color: #162066;
+                  outline: none;
+                  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+              }
+      
+              button {
+                  width: 100%;
+                  padding: 12px;
+                  background-color: #162066;
+                  color: white;
+                  font-size: 16px;
+                  border: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  transition: background-color 0.3s;
+              }
+      
+              button:hover {
+                  background-color: #162066;
+              }
+      
+              h2 {
+                  text-align: center;
+                  color: #162066;
+              }
+          </style>
+    </head>
+    <!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
