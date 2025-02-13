@@ -125,6 +125,113 @@
         }
     </style>
 </head>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คำนวณต้นทุนการจัดการคลังสินค้า</title>
+    <style>
+        /* เริ่มจากการจัดการกับฟอร์ม */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .form-container {
+            width: 80%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2em;
+            background-color: #5cb85c; /* สีเขียวเดิม */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4cae4c; /* สีเขียวเข้มเมื่อ hover */
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        /* Media Query สำหรับอุปกรณ์ขนาดเล็ก */
+        @media (max-width: 768px) {
+            .form-container {
+                width: 90%;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            input[type="number"], button {
+                font-size: 1em;
+            }
+        }
+        
+        /* Media Query สำหรับอุปกรณ์ขนาดใหญ่ (Desktop) */
+        @media (min-width: 769px) {
+            .form-container {
+                width: 60%;
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            input[type="number"], button {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
 <body>
     <div class="form-container">
         <h1>คำนวณต้นทุนการจัดการคลังสินค้า</h1>
