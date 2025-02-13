@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"> </script>
+        <title>Calculate logistics costs</title>
+        <link rel="icon" href="img/logo.png">
+        <style>
+            body {
+                width: 100%;
+                height: auto;
+                margin: auto;
+                overflow: auto;     
+            }
+        </style>
+    </head>
+<body>
+  <main>
+    <section id="home">
+       <img src="img/brandner.png" class="img-fluid">
+    </section>
+    </main>
+  <div style="background-color: rgb(151, 196, 206);">
+    <div class="vstack gap-3">
+      <nav class="navbar navbar-dark bg-dark fixed-">
+        <a class="navbar-brand" href="index.html">คำนวณต้นทุนโลจิสติกส์</a>
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link" href="4.html">ต้นทุนการขนส่ง</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="3.html">ต้นทุนการจัดการคลังสินค้า</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="2.html">ต้นทุนการจัดการสินค้าคงคลัง</a>
+          </li>
+          <li class="nav-item"></li>
+            <a class="nav-link" href="1.html">ต้นทุนการบริหาร</a>
+          </li>
+        </div>
+        </ul>
+      </nav>
+<!DOCTYPE html>
+      <html lang="th">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>ต้นทุนการบริหาร</title>
+          <style>
+              /* จัดรูปแบบฟอร์ม */
+              body {
+                  font-family: Arial, sans-serif;
+                  background-color: #ffffff;
+                  color: #333;
+              }
+      
+              .form-container {
+                  width: 500px;
+                  margin: 100px auto;
+                  padding: 30px;
+                  background-color: #ffffff;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                  border-radius: 20px;
+                  border: 1px solid #ddd;
+              }
+      
+              h1 {
+                  text-align: center;
+                  color: #162066;
+              }
+      
+              .form-group {
+                  margin-bottom: 20px;
+              }
+      
+              label {
+                  display: block;
+                  font-weight: bold;
+                  margin-bottom: 5px;
+                  color: #555;
+              }
+      
+              input[type="text"], input[type="number"] {
+                  width: 100%;
+                  padding: 10px;
+                  border: 1px solid #ddd;
+                  border-radius: 5px;
+                  box-sizing: border-box;
+                  font-size: 16px;
+              }
+      
+              input[type="text"]:focus, input[type="number"]:focus {
+                  border-color: #162066;
+                  outline: none;
+                  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+              }
+      
+              button {
+                  width: 100%;
+                  padding: 12px;
+                  background-color: #162066;
+                  color: white;
+                  font-size: 16px;
+                  border: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  transition: background-color 0.3s;
+              }
+      
+              button:hover {
+                  background-color: #162066;
+              }
+      
+              h2 {
+                  text-align: center;
+                  color: #162066;
+              }
+          </style>
+      </head>
+      <body>
+          <div class="form-container">
+              <h1>คำนวณต้นทุนการบริหาร</h1>
+              <form id="costForm">
+                  <div class="form-group">
+                      <label for="salary">เงินเดือนและค่าแรง:</label>
+                      <input type="number" id="salary" name="salary" placeholder="จำนวนเงิน" required>
+                  </div>
+      
+                  <div class="form-group">
+                      <label for="rent">ค่าเช่าสำนักงาน:</label>
+                      <input type="number" id="rent" name="rent" placeholder="จำนวนเงิน" required>
+                  </div>
+      
+                  <div class="form-group">
+                      <label for="utilities">ค่าสาธารณูปโภค:</label>
+                      <input type="number" id="utilities" name="utilities" placeholder="จำนวนเงิน" required>
+                  </div>
+      
+                  <div class="form-group">
+                      <label for="officeSupplies">ค่าอุปกรณ์สำนักงาน:</label>
+                      <input type="number" id="officeSupplies" name="officeSupplies" placeholder="จำนวนเงิน" required>
+                  </div>
+      
+                  <button type="button" onclick="calculateTotal()">คำนวณ</button>
+              </form>
+              <br>
+              <h2>ต้นทุนการบริหารทั้งหมด: <span id="totalCost">0</span> บาท</h2>
+          </div>
+      
+          <script>
+              function calculateTotal() {
+                  const salary = parseFloat(document.getElementById('salary').value) || 0;
+                  const rent = parseFloat(document.getElementById('rent').value) || 0;
+                  const utilities = parseFloat(document.getElementById('utilities').value) || 0;
+                  const officeSupplies = parseFloat(document.getElementById('officeSupplies').value) || 0;
+      
+                  const total = salary + rent + utilities + officeSupplies;
+                  document.getElementById('totalCost').innerText = total.toFixed(2);
+              }
+          </script>
+          <Center><button onclick="history.back()" style="width:10%;">ย้อนกลับ</button></Center>
+          <br>
+      </body>
+      </html>
