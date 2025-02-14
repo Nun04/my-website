@@ -207,15 +207,17 @@
                 return;
             }
 
-            const baseTransportCost = distance * fuelRate;
-            const driverWage = driverWageRate * distance;
+            // คำนวณต้นทุนต่างๆ
             const fuelCostTotal = (distance / fuelRate) * fuelCost;
+            const driverWage = driverWageRate * distance;
             const maintenanceCost = distance * maintenanceRate;
-            const depreciationCost = depreciationRate;
+            const depreciationCost = depreciationRate / 12;  // แปลงค่าเสื่อมราคาเป็นรายเดือน
             const totalAdditionalCosts = additionalCosts;
 
-            const totalCost = baseTransportCost + driverWage + fuelCostTotal + maintenanceCost + depreciationCost + totalAdditionalCosts;
+            // คำนวณต้นทุนรวม
+            const totalCost = fuelCostTotal + driverWage + maintenanceCost + depreciationCost + totalAdditionalCosts;
 
+            // แสดงผลลัพธ์
             document.getElementById('totalTransportCost').innerText = totalCost.toFixed(2);
         }
     </script>
