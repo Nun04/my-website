@@ -45,90 +45,15 @@
         </ul>
       </nav>
 <!DOCTYPE html>
-      <html lang="th">
-      <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>ต้นทุนการขนส่ง</title>
-          <style>
-              /* จัดรูปแบบฟอร์ม */
-              body {
-                  font-family: Arial, sans-serif;
-                  background-color: #ffffff;
-                  color: #333;
-              }
-      
-              .form-container {
-                  width: 500px;
-                  margin: 100px auto;
-                  padding: 30px;
-                  background-color: #ffffff;
-                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                  border-radius: 20px;
-                  border: 1px solid #ddd;
-              }
-      
-              h1 {
-                  text-align: center;
-                  color: #162066;
-              }
-      
-              .form-group {
-                  margin-bottom: 20px;
-              }
-      
-              label {
-                  display: block;
-                  font-weight: bold;
-                  margin-bottom: 5px;
-                  color: #555;
-              }
-      
-              input[type="text"], input[type="number"] {
-                  width: 100%;
-                  padding: 10px;
-                  border: 1px solid #ddd;
-                  border-radius: 5px;
-                  box-sizing: border-box;
-                  font-size: 16px;
-              }
-      
-              input[type="text"]:focus, input[type="number"]:focus {
-                  border-color: #162066;
-                  outline: none;
-                  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
-              }
-      
-              button {
-                  width: 100%;
-                  padding: 12px;
-                  background-color: #162066;
-                  color: white;
-                  font-size: 16px;
-                  border: none;
-                  border-radius: 5px;
-                  cursor: pointer;
-                  transition: background-color 0.3s;
-              }
-      
-              button:hover {
-                  background-color: #162066;
-              }
-      
-              h2 {
-                  text-align: center;
-                  color: #162066;
-              }
-          </style>
-    </head>
-    <!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>คำนวณต้นทุนการขนส่ง</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"> </script>
     <style>
-        /* เริ่มจากการจัดการกับฟอร์ม */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -177,7 +102,7 @@
             width: 100%;
             padding: 10px;
             font-size: 1.2em;
-            background-color: #5cb85c; /* สีเขียวเดิม */
+            background-color: #5cb85c;
             color: white;
             border: none;
             border-radius: 5px;
@@ -185,7 +110,7 @@
         }
 
         button:hover {
-            background-color: #4cae4c; /* สีเขียวเข้มเมื่อ hover */
+            background-color: #4cae4c;
         }
 
         h2 {
@@ -230,48 +155,66 @@
 </head>
 <body>
     <div class="form-container">
-        <h1>ต้นทุนการขนส่ง</h1>
+        <h1>คำนวณต้นทุนการขนส่ง</h1>
         <form id="costForm">
             <div class="form-group">
                 <label for="distance">ระยะทาง (กิโลเมตร):</label>
                 <input type="number" id="distance" name="distance" placeholder="ระยะทาง" required>
             </div>
             <div class="form-group">
-                <label for="weight">น้ำหนักสินค้า (กิโลกรัม):</label>
-                <input type="number" id="weight" name="weight" placeholder="น้ำหนัก" required>
+                <label for="fuelRate">อัตราการใช้น้ำมัน (กิโลเมตร/ลิตร):</label>
+                <input type="number" id="fuelRate" name="fuelRate" placeholder="อัตราการใช้น้ำมัน" required>
             </div>
             <div class="form-group">
-                <label for="costPerKg">ค่าใช้จ่ายต่อกิโลกรัม:</label>
-                <input type="number" id="costPerKg" name="costPerKg" placeholder="บาท/กก." required>
+                <label for="fuelCost">ราคาน้ำมัน (บาท/ลิตร):</label>
+                <input type="number" id="fuelCost" name="fuelCost" placeholder="ราคาน้ำมัน" required>
             </div>
             <div class="form-group">
-                <label for="costPerKm">ค่าใช้จ่ายต่อกิโลเมตร:</label>
-                <input type="number" id="costPerKm" name="costPerKm" placeholder="บาท/กม." required>
+                <label for="driverWageRate">ค่าจ้างคนขับ (บาท/กิโลเมตร):</label>
+                <input type="number" id="driverWageRate" name="driverWageRate" placeholder="ค่าจ้างคนขับ" required>
             </div>
-
+            <div class="form-group">
+                <label for="maintenanceRate">อัตราค่าบำรุงรักษาต่อกิโลเมตร (บาท):</label>
+                <input type="number" id="maintenanceRate" name="maintenanceRate" placeholder="ค่าบำรุงรักษา" required>
+            </div>
+            <div class="form-group">
+                <label for="depreciationRate">ค่าเสื่อมราคา (บาท/ปี):</label>
+                <input type="number" id="depreciationRate" name="depreciationRate" placeholder="ค่าเสื่อมราคา" required>
+            </div>
+            <div class="form-group">
+                <label for="additionalCosts">ค่าใช้จ่ายอื่นๆ (บาท):</label>
+                <input type="number" id="additionalCosts" name="additionalCosts" placeholder="ค่าใช้จ่ายอื่นๆ" required>
+            </div>
             <button type="button" onclick="calculateTransportCost()">คำนวณ</button>
         </form>
         <br>
         <h2>ต้นทุนการขนส่งทั้งหมด: <span id="totalTransportCost">0</span> บาท</h2>    
     </div>
     <center><button onclick="history.back()"style="width:30%" >ย้อนกลับ</button></center>
-    <br>
 
     <script>
         function calculateTransportCost() {
             const distance = parseFloat(document.getElementById('distance').value) || 0;
-            const weight = parseFloat(document.getElementById('weight').value) || 0;
-            const costPerKg = parseFloat(document.getElementById('costPerKg').value) || 0;
-            const costPerKm = parseFloat(document.getElementById('costPerKm').value) || 0;
+            const fuelRate = parseFloat(document.getElementById('fuelRate').value) || 0;
+            const fuelCost = parseFloat(document.getElementById('fuelCost').value) || 0;
+            const driverWageRate = parseFloat(document.getElementById('driverWageRate').value) || 0;
+            const maintenanceRate = parseFloat(document.getElementById('maintenanceRate').value) || 0;
+            const depreciationRate = parseFloat(document.getElementById('depreciationRate').value) || 0;
+            const additionalCosts = parseFloat(document.getElementById('additionalCosts').value) || 0;
 
-            if (distance <= 0 || weight <= 0 || costPerKg <= 0 || costPerKm <= 0) {
+            if (distance <= 0 || fuelRate <= 0 || fuelCost <= 0 || driverWageRate <= 0 || maintenanceRate <= 0 || depreciationRate <= 0 || additionalCosts <= 0) {
                 alert("กรุณากรอกข้อมูลทั้งหมดให้ถูกต้อง");
                 return;
             }
 
-            const weightCost = weight * costPerKg;
-            const distanceCost = distance * costPerKm;
-            const totalCost = weightCost + distanceCost;
+            const baseTransportCost = distance * fuelRate;
+            const driverWage = driverWageRate * distance;
+            const fuelCostTotal = (distance / fuelRate) * fuelCost;
+            const maintenanceCost = distance * maintenanceRate;
+            const depreciationCost = depreciationRate;
+            const totalAdditionalCosts = additionalCosts;
+
+            const totalCost = baseTransportCost + driverWage + fuelCostTotal + maintenanceCost + depreciationCost + totalAdditionalCosts;
 
             document.getElementById('totalTransportCost').innerText = totalCost.toFixed(2);
         }
