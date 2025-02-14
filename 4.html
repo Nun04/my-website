@@ -51,8 +51,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>คำนวณต้นทุนการขนส่ง</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -119,38 +119,6 @@
             margin-top: 20px;
             color: #333;
         }
-
-        /* Media Query สำหรับอุปกรณ์ขนาดเล็ก */
-        @media (max-width: 768px) {
-            .form-container {
-                width: 90%;
-                padding: 15px;
-            }
-
-            h1 {
-                font-size: 1.8em;
-            }
-
-            input[type="number"], button {
-                font-size: 1em;
-            }
-        }
-        
-        /* Media Query สำหรับอุปกรณ์ขนาดใหญ่ (Desktop) */
-        @media (min-width: 769px) {
-            .form-container {
-                width: 60%;
-                padding: 30px;
-            }
-
-            h1 {
-                font-size: 2.5em;
-            }
-
-            input[type="number"], button {
-                font-size: 1.2em;
-            }
-        }
     </style>
 </head>
 <body>
@@ -170,16 +138,8 @@
                 <input type="number" id="fuelCost" name="fuelCost" placeholder="ราคาน้ำมัน" required>
             </div>
             <div class="form-group">
-                <label for="driverWageRate">ค่าจ้างคนขับ (บาท/กิโลเมตร):</label>
-                <input type="number" id="driverWageRate" name="driverWageRate" placeholder="ค่าจ้างคนขับ" required>
-            </div>
-            <div class="form-group">
-                <label for="maintenanceRate">อัตราค่าบำรุงรักษาต่อกิโลเมตร (บาท):</label>
-                <input type="number" id="maintenanceRate" name="maintenanceRate" placeholder="ค่าบำรุงรักษา" required>
-            </div>
-            <div class="form-group">
-                <label for="depreciationRate">ค่าเสื่อมราคา (บาท/ปี):</label>
-                <input type="number" id="depreciationRate" name="depreciationRate" placeholder="ค่าเสื่อมราคา" required>
+                <label for="driverWage">ค่าจ้างคนขับ (บาท/กิโลเมตร):</label>
+                <input type="number" id="driverWage" name="driverWage" placeholder="ค่าจ้างคนขับ" required>
             </div>
             <div class="form-group">
                 <label for="additionalCosts">ค่าใช้จ่ายอื่นๆ (บาท):</label>
@@ -190,35 +150,25 @@
         <br>
         <h2>ต้นทุนการขนส่งทั้งหมด: <span id="totalTransportCost">0</span> บาท</h2>    
     </div>
-    <center><button onclick="history.back()"style="width:30%" >ย้อนกลับ</button></center>
 
     <script>
         function calculateTransportCost() {
             const distance = parseFloat(document.getElementById('distance').value) || 0;
             const fuelRate = parseFloat(document.getElementById('fuelRate').value) || 0;
             const fuelCost = parseFloat(document.getElementById('fuelCost').value) || 0;
-            const driverWageRate = parseFloat(document.getElementById('driverWageRate').value) || 0;
-            const maintenanceRate = parseFloat(document.getElementById('maintenanceRate').value) || 0;
-            const depreciationRate = parseFloat(document.getElementById('depreciationRate').value) || 0;
+            const driverWage = parseFloat(document.getElementById('driverWage').value) || 0;
             const additionalCosts = parseFloat(document.getElementById('additionalCosts').value) || 0;
 
-            if (distance <= 0 || fuelRate <= 0 || fuelCost <= 0 || driverWageRate <= 0 || maintenanceRate <= 0 || depreciationRate <= 0 || additionalCosts <= 0) {
+            if (distance <= 0 || fuelRate <= 0 || fuelCost <= 0 || driverWage <= 0 || additionalCosts < 0) {
                 alert("กรุณากรอกข้อมูลทั้งหมดให้ถูกต้อง");
                 return;
             }
 
-            // คำนวณต้นทุนต่างๆ
             const fuelCostTotal = (distance / fuelRate) * fuelCost;
-            const driverWage = driverWageRate * distance;
-            const maintenanceCost = distance * maintenanceRate;
-            const depreciationCost = depreciationRate / 12;  // แปลงค่าเสื่อมราคาเป็นรายเดือน
-            const totalAdditionalCosts = additionalCosts;
+            const driverWageTotal = distance * driverWage;
+            const totalTransportCost = fuelCostTotal + driverWageTotal + additionalCosts;
 
-            // คำนวณต้นทุนรวม
-            const totalCost = fuelCostTotal + driverWage + maintenanceCost + depreciationCost + totalAdditionalCosts;
-
-            // แสดงผลลัพธ์
-            document.getElementById('totalTransportCost').innerText = totalCost.toFixed(2);
+            document.getElementById('totalTransportCost').innerText = totalTransportCost.toFixed(2);
         }
     </script>
 </body>
