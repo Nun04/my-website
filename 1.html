@@ -45,90 +45,12 @@
         </ul>
       </nav>
 <!DOCTYPE html>
-      <html lang="th">
-      <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>ต้นทุนการบริหาร</title>
-          <style>
-              /* จัดรูปแบบฟอร์ม */
-              body {
-                  font-family: Arial, sans-serif;
-                  background-color: #ffffff;
-                  color: #333;
-              }
-      
-              .form-container {
-                  width: 500px;
-                  margin: 100px auto;
-                  padding: 30px;
-                  background-color: #ffffff;
-                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                  border-radius: 20px;
-                  border: 1px solid #ddd;
-              }
-      
-              h1 {
-                  text-align: center;
-                  color: #162066;
-              }
-      
-              .form-group {
-                  margin-bottom: 20px;
-              }
-      
-              label {
-                  display: block;
-                  font-weight: bold;
-                  margin-bottom: 5px;
-                  color: #555;
-              }
-      
-              input[type="text"], input[type="number"] {
-                  width: 100%;
-                  padding: 10px;
-                  border: 1px solid #ddd;
-                  border-radius: 5px;
-                  box-sizing: border-box;
-                  font-size: 16px;
-              }
-      
-              input[type="text"]:focus, input[type="number"]:focus {
-                  border-color: #162066;
-                  outline: none;
-                  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
-              }
-      
-              button {
-                  width: 100%;
-                  padding: 12px;
-                  background-color: #162066;
-                  color: white;
-                  font-size: 16px;
-                  border: none;
-                  border-radius: 5px;
-                  cursor: pointer;
-                  transition: background-color 0.3s;
-              }
-      
-              button:hover {
-                  background-color: #162066;
-              }
-      
-              h2 {
-                  text-align: center;
-                  color: #162066;
-              }
-          </style>
-      </head>
-      <!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>คำนวณต้นทุนการบริหาร</title>
+    <title>คำนวณต้นทุนการบริหารโลจิสติกส์</title>
     <style>
-        /* เริ่มจากการจัดการกับฟอร์ม */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -177,7 +99,7 @@
             width: 100%;
             padding: 10px;
             font-size: 1.2em;
-            background-color: #5cb85c; /* สีเขียวเดิม */
+            background-color: #5cb85c;
             color: white;
             border: none;
             border-radius: 5px;
@@ -185,7 +107,7 @@
         }
 
         button:hover {
-            background-color: #4cae4c; /* สีเขียวเข้มเมื่อ hover */
+            background-color: #4cae4c;
         }
 
         h2 {
@@ -195,7 +117,6 @@
             color: #333;
         }
 
-        /* Media Query สำหรับอุปกรณ์ขนาดเล็ก */
         @media (max-width: 768px) {
             .form-container {
                 width: 90%;
@@ -210,8 +131,7 @@
                 font-size: 1em;
             }
         }
-        
-        /* Media Query สำหรับอุปกรณ์ขนาดใหญ่ (Desktop) */
+
         @media (min-width: 769px) {
             .form-container {
                 width: 60%;
@@ -230,29 +150,29 @@
 </head>
 <body>
     <div class="form-container">
-        <h1>คำนวณต้นทุนการบริหาร</h1>
+        <h1>คำนวณต้นทุนการบริหารโลจิสติกส์</h1>
         <form id="costForm">
             <div class="form-group">
-                <label for="salary">เงินเดือนและค่าแรง:</label>
-                <input type="number" id="salary" name="salary" placeholder="จำนวนเงิน" required>
+                <label for="warehouseRent">ค่าเช่าคลังสินค้า:</label>
+                <input type="number" id="warehouseRent" name="warehouseRent" placeholder="จำนวนเงิน" required>
             </div>
             <div class="form-group">
-                <label for="rent">ค่าเช่าสำนักงาน:</label>
-                <input type="number" id="rent" name="rent" placeholder="จำนวนเงิน" required>
+                <label for="transportationCost">ค่าใช้จ่ายในการขนส่ง:</label>
+                <input type="number" id="transportationCost" name="transportationCost" placeholder="จำนวนเงิน" required>
             </div>
             <div class="form-group">
-                <label for="utilities">ค่าสาธารณูปโภค:</label>
-                <input type="number" id="utilities" name="utilities" placeholder="จำนวนเงิน" required>
+                <label for="employeeSalaries">ค่าจ้างพนักงานโลจิสติกส์:</label>
+                <input type="number" id="employeeSalaries" name="employeeSalaries" placeholder="จำนวนเงิน" required>
             </div>
             <div class="form-group">
-                <label for="officeSupplies">ค่าอุปกรณ์สำนักงาน:</label>
-                <input type="number" id="officeSupplies" name="officeSupplies" placeholder="จำนวนเงิน" required>
+                <label for="technologyCost">ค่าเทคโนโลยี:</label>
+                <input type="number" id="technologyCost" name="technologyCost" placeholder="จำนวนเงิน" required>
             </div>
 
             <button type="button" onclick="calculateTotal()">คำนวณ</button>
         </form>
         <br>
-        <h2>ต้นทุนการบริหารทั้งหมด: <span id="totalCost">0</span> บาท</h2>
+        <h2>ต้นทุนการบริหารโลจิสติกส์ทั้งหมด: <span id="totalCost">0</span> บาท</h2>
     </div>
 
     <center><button onclick="history.back()" style="width:30%;">ย้อนกลับ</button></center>
@@ -260,12 +180,12 @@
 
     <script>
         function calculateTotal() {
-            const salary = parseFloat(document.getElementById('salary').value) || 0;
-            const rent = parseFloat(document.getElementById('rent').value) || 0;
-            const utilities = parseFloat(document.getElementById('utilities').value) || 0;
-            const officeSupplies = parseFloat(document.getElementById('officeSupplies').value) || 0;
-    
-            const total = salary + rent + utilities + officeSupplies;
+            const warehouseRent = parseFloat(document.getElementById('warehouseRent').value) || 0;
+            const transportationCost = parseFloat(document.getElementById('transportationCost').value) || 0;
+            const employeeSalaries = parseFloat(document.getElementById('employeeSalaries').value) || 0;
+            const technologyCost = parseFloat(document.getElementById('technologyCost').value) || 0;
+
+            const total = warehouseRent + transportationCost + employeeSalaries + technologyCost;
             document.getElementById('totalCost').innerText = total.toFixed(2);
         }
     </script>
