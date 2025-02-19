@@ -45,90 +45,12 @@
         </ul>
       </nav>
 <!DOCTYPE html>
-      <html lang="th">
-      <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>คำนวณต้นทุนการจัดการสินค้าคงคลัง</title>
-          <style>
-              /* จัดรูปแบบฟอร์ม */
-              body {
-                  font-family: Arial, sans-serif;
-                  background-color: #ffffff;
-                  color: #333;
-              }
-      
-              .form-container {
-                  width: 500px;
-                  margin: 100px auto;
-                  padding: 30px;
-                  background-color: #ffffff;
-                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                  border-radius: 20px;
-                  border: 1px solid #ddd;
-              }
-      
-              h1 {
-                  text-align: center;
-                  color: #162066;
-              }
-      
-              .form-group {
-                  margin-bottom: 20px;
-              }
-      
-              label {
-                  display: block;
-                  font-weight: bold;
-                  margin-bottom: 5px;
-                  color: #555;
-              }
-      
-              input[type="text"], input[type="number"] {
-                  width: 100%;
-                  padding: 10px;
-                  border: 1px solid #ddd;
-                  border-radius: 5px;
-                  box-sizing: border-box;
-                  font-size: 16px;
-              }
-      
-              input[type="text"]:focus, input[type="number"]:focus {
-                  border-color: #162066;
-                  outline: none;
-                  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
-              }
-      
-              button {
-                  width: 100%;
-                  padding: 12px;
-                  background-color: #162066;
-                  color: white;
-                  font-size: 16px;
-                  border: none;
-                  border-radius: 5px;
-                  cursor: pointer;
-                  transition: background-color 0.3s;
-              }
-      
-              button:hover {
-                  background-color: #162066;
-              }
-      
-              h2 {
-                  text-align: center;
-                  color: #162066;
-              }
-          </style>
-    </head>
-<!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>คำนวณต้นทุนการจัดการสินค้าคงคลัง</title>
     <style>
-        /* เริ่มจากการจัดการกับฟอร์ม */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -177,7 +99,7 @@
             width: 100%;
             padding: 10px;
             font-size: 1.2em;
-            background-color: #5cb85c; /* สีเขียวเดิม */
+            background-color: #5cb85c;
             color: white;
             border: none;
             border-radius: 5px;
@@ -185,7 +107,7 @@
         }
 
         button:hover {
-            background-color: #4cae4c; /* สีเขียวเข้มเมื่อ hover */
+            background-color: #4cae4c;
         }
 
         h2 {
@@ -194,89 +116,32 @@
             margin-top: 20px;
             color: #333;
         }
-
-        /* Media Query สำหรับอุปกรณ์ขนาดเล็ก */
-        @media (max-width: 768px) {
-            .form-container {
-                width: 90%;
-                padding: 15px;
-            }
-
-            h1 {
-                font-size: 1.8em;
-            }
-
-            input[type="number"], button {
-                font-size: 1em;
-            }
-        }
-        
-        /* Media Query สำหรับอุปกรณ์ขนาดใหญ่ (Desktop) */
-        @media (min-width: 769px) {
-            .form-container {
-                width: 60%;
-                padding: 30px;
-            }
-
-            h1 {
-                font-size: 2.5em;
-            }
-
-            input[type="number"], button {
-                font-size: 1.2em;
-            }
-        }
     </style>
 </head>
 <body>
     <div class="container mt-5">
-            <div class="content">
-                <h2 class="section-header">คำนวณต้นทุนการจัดการสินค้าคงคลัง</h2>
-                <hr>
-                <p><font face="angsananew" size="4" color="#2F4F4F"><center>
-                    ตัวอย่างข้อมูล: - ค่าใช้จ่ายในการสั่งซื้อ = 500 บาท - ค่าใช้จ่ายในการเก็บสินค้า = 20 บาทต่อหน่วย - ค่าใช้จ่ายต่อหน่วย = 100 บาทต่อหน่วย<br>
-- จำนวนสินค้าคงคลัง = 200 หน่วย - จำนวนสินค้าที่สั่งในแต่ละครั้ง = 50 หน่วย</h1><br><br></center>
+    <div class="content">
+        <h2 class="section-header">คำนวณต้นทุนการจัดการสินค้าคงคลัง</h2>
+        <hr>
+        <p><font face="angsananew" size="4" color="#2F4F4F"><center>
+            ตัวอย่างข้อมูล: - ค่าใช้จ่ายในการสั่งซื้อ = 500 บาท - ค่าใช้จ่ายในการเก็บสินค้า = 20 บาทต่อหน่วย - ค่าใช้จ่ายต่อหน่วย = 100 บาทต่อหน่วย<br>
+            - จำนวนสินค้าคงคลัง = 200 หน่วย - จำนวนสินค้าที่สั่งในแต่ละครั้ง = 50 หน่วย</h1><br><br></center>
     <div class="form-container">
         <h1>คำนวณต้นทุนการจัดการสินค้าคงคลัง</h1>
-        <form id="costForm">
-            <div class="form-group">
-                <label for="orderingCost">ค่าใช้จ่ายในการสั่งซื้อ (ต่อการสั่งซื้อ):</label>
-                <input type="number" id="orderingCost" name="orderingCost" placeholder="จำนวนเงิน" required>
-            </div>
-            <div class="form-group">
-                <label for="holdingCost">ค่าใช้จ่ายในการเก็บสินค้า (ต่อหน่วย):</label>
-                <input type="number" id="holdingCost" name="holdingCost" placeholder="จำนวนเงิน" required>
-            </div>
-            <div class="form-group">
-                <label for="unitCost">ค่าใช้จ่ายต่อหน่วย:</label>
-                <input type="number" id="unitCost" name="unitCost" placeholder="จำนวนเงิน" required>
-            </div>
-            <div class="form-group">
-                <label for="inventoryLevel">จำนวนสินค้าคงคลัง (หน่วย):</label>
-                <input type="number" id="inventoryLevel" name="inventoryLevel" placeholder="จำนวนหน่วย" required>
-            </div>
-            <div class="form-group">
-                <label for="orderQuantity">จำนวนสินค้าที่สั่งในแต่ละครั้ง:</label>
-                <input type="number" id="orderQuantity" name="orderQuantity" placeholder="จำนวนหน่วยที่สั่ง" required>
-            </div>
-
-            <button type="button" onclick="calculateInventoryCost()">คำนวณ</button>
-        </form>
+        
         <br>
         <h2>ต้นทุนการจัดการสินค้าคงคลังทั้งหมด: <span id="totalInventoryCost">0</span> บาท</h2>
     </div>
 
-    <center><button onclick="history.back()" style="width:30%;">ย้อนกลับ</button></center>
-    <br>
-
     <script>
         function calculateInventoryCost() {
-            const orderingCost = parseFloat(document.getElementById('orderingCost').value) || 0;
-            const holdingCost = parseFloat(document.getElementById('holdingCost').value) || 0;
-            const unitCost = parseFloat(document.getElementById('unitCost').value) || 0;
-            const inventoryLevel = parseFloat(document.getElementById('inventoryLevel').value) || 0;
-            const orderQuantity = parseFloat(document.getElementById('orderQuantity').value) || 0;
-            
+            // กำหนดค่าคงที่ที่ไม่ต้องกรอกจากผู้ใช้
+            const orderingCost = 500;  // ค่าใช้จ่ายในการสั่งซื้อ (ต่อการสั่งซื้อ)
+            const holdingCost = 20;   // ค่าใช้จ่ายในการเก็บสินค้า (ต่อหน่วย)
+            const unitCost = 100;     // ค่าใช้จ่ายต่อหน่วย
+            const inventoryLevel = 200;  // จำนวนสินค้าคงคลัง
+            const orderQuantity = 50;   // จำนวนสินค้าที่สั่งในแต่ละครั้ง
+
             // คำนวณจำนวนการสั่งซื้อ
             const numberOfOrders = inventoryLevel / orderQuantity;
 
@@ -289,6 +154,10 @@
 
             document.getElementById('totalInventoryCost').innerText = totalInventoryCost.toFixed(2);
         }
+
+        // เรียกฟังก์ชันเมื่อโหลดหน้า
+        window.onload = calculateInventoryCost;
     </script>
 </body>
 </html>
+
