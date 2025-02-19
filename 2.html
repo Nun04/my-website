@@ -125,23 +125,45 @@
         <hr>
         <p><font face="angsananew" size="4" color="#2F4F4F"><center>
             ตัวอย่างข้อมูล: - ค่าใช้จ่ายในการสั่งซื้อ = 500 บาท - ค่าใช้จ่ายในการเก็บสินค้า = 20 บาทต่อหน่วย - ค่าใช้จ่ายต่อหน่วย = 100 บาทต่อหน่วย<br>
-            - จำนวนสินค้าคงคลัง = 200 หน่วย - จำนวนสินค้าที่สั่งในแต่ละครั้ง = 50 หน่วย</h1><br><br></center>
+- จำนวนสินค้าคงคลัง = 200 หน่วย - จำนวนสินค้าที่สั่งในแต่ละครั้ง = 50 หน่วย</h1><br><br></center>
     <div class="form-container">
         <h1>คำนวณต้นทุนการจัดการสินค้าคงคลัง</h1>
-        
+        <form id="costForm">
+            <div class="form-group">
+                <label for="orderingCost">ค่าใช้จ่ายในการสั่งซื้อ (ต่อการสั่งซื้อ):</label>
+                <input type="number" id="orderingCost" name="orderingCost" placeholder="จำนวนเงิน" value="500" required>
+            </div>
+            <div class="form-group">
+                <label for="holdingCost">ค่าใช้จ่ายในการเก็บสินค้า (ต่อหน่วย):</label>
+                <input type="number" id="holdingCost" name="holdingCost" placeholder="จำนวนเงิน" value="20" required>
+            </div>
+            <div class="form-group">
+                <label for="unitCost">ค่าใช้จ่ายต่อหน่วย:</label>
+                <input type="number" id="unitCost" name="unitCost" placeholder="จำนวนเงิน" value="100" required>
+            </div>
+            <div class="form-group">
+                <label for="inventoryLevel">จำนวนสินค้าคงคลัง (หน่วย):</label>
+                <input type="number" id="inventoryLevel" name="inventoryLevel" placeholder="จำนวนหน่วย" value="200" required>
+            </div>
+            <div class="form-group">
+                <label for="orderQuantity">จำนวนสินค้าที่สั่งในแต่ละครั้ง:</label>
+                <input type="number" id="orderQuantity" name="orderQuantity" placeholder="จำนวนหน่วยที่สั่ง" value="50" required>
+            </div>
+
+            <button type="button" onclick="calculateInventoryCost()">คำนวณ</button>
+        </form>
         <br>
         <h2>ต้นทุนการจัดการสินค้าคงคลังทั้งหมด: <span id="totalInventoryCost">0</span> บาท</h2>
     </div>
 
     <script>
         function calculateInventoryCost() {
-            // กำหนดค่าคงที่ที่ไม่ต้องกรอกจากผู้ใช้
-            const orderingCost = 500;  // ค่าใช้จ่ายในการสั่งซื้อ (ต่อการสั่งซื้อ)
-            const holdingCost = 20;   // ค่าใช้จ่ายในการเก็บสินค้า (ต่อหน่วย)
-            const unitCost = 100;     // ค่าใช้จ่ายต่อหน่วย
-            const inventoryLevel = 200;  // จำนวนสินค้าคงคลัง
-            const orderQuantity = 50;   // จำนวนสินค้าที่สั่งในแต่ละครั้ง
-
+            const orderingCost = parseFloat(document.getElementById('orderingCost').value) || 0;
+            const holdingCost = parseFloat(document.getElementById('holdingCost').value) || 0;
+            const unitCost = parseFloat(document.getElementById('unitCost').value) || 0;
+            const inventoryLevel = parseFloat(document.getElementById('inventoryLevel').value) || 0;
+            const orderQuantity = parseFloat(document.getElementById('orderQuantity').value) || 0;
+            
             // คำนวณจำนวนการสั่งซื้อ
             const numberOfOrders = inventoryLevel / orderQuantity;
 
@@ -154,10 +176,6 @@
 
             document.getElementById('totalInventoryCost').innerText = totalInventoryCost.toFixed(2);
         }
-
-        // เรียกฟังก์ชันเมื่อโหลดหน้า
-        window.onload = calculateInventoryCost;
     </script>
 </body>
 </html>
-
